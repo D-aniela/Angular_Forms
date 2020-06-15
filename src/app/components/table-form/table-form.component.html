@@ -1,0 +1,196 @@
+<div class="container">
+  <div class="col-12">
+    <div class="title">
+      <h4>BILLING ADDRESS - BLUE NILE</h4>
+      <li>
+        Please enter a valir zip code for your region
+      </li>
+    </div>
+
+    <div class="question">
+      <div class="alert alert-primary" role="alert">
+        <label>
+          Would you like to create a Blue Nile Account and store this
+          information?
+        </label>
+        <input
+          class="form-check-input ml-3"
+          type="radio"
+          name="exampleRadios"
+          id="exampleRadios3"
+          value="option1"
+        />
+        <label class="form-check-label ml-5" for="exampleRadios3">
+          Yes
+        </label>
+        <input
+          class="form-check-input ml-3"
+          type="radio"
+          name="exampleRadios"
+          id="exampleRadios3"
+          value="option2"
+          checked
+        />
+        <label class="form-check-label ml-5" for="exampleRadios3">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Me encerrara todos los inputs hasta antes del ultimo div ng container -->
+  <ng-container [formGroup]="formulario">
+    <div class="forma">
+      <div class="col-6">
+        <div class="first-section">
+          <div class="first form-group">
+            <label for="">*First Name</label>
+            <input
+              type="text"
+              placeholder="John"
+              class="form-control form-control-sm"
+              formControlName="firstName"
+            />
+          </div>
+
+          <div class="last form-group">
+            <label for="">*Last Name</label>
+            <input
+              type="text"
+              placeholder="Newman"
+              class="form-control form-control-sm"
+            />
+          </div>
+
+          <div class="company form-group">
+            <label for="">Company</label>
+            <input type="text" class="form-control form-control-sm" />
+          </div>
+
+          <div class="phone form-group">
+            <label for="">*Phone</label>
+            <input
+              type="text"
+              placeholder="4158484445"
+              class="form-control col-8 form-control-sm"
+            />
+            <small>Phone Number</small>
+            <input type="text" class="form-control col-2 form-control-sm" />
+            <small>Ext</small>
+            <a href="">Int. number?</a>
+          </div>
+
+          <div class="email form-group">
+            <label for="">*Email</label>
+            <input
+              type="text"
+              placeholder="john.newman@baymard.com"
+              class="form-control form-control-sm"
+            />
+          </div>
+
+          <div class="retype form-group">
+            <label for="">*Re-type E-mail</label>
+            <input
+              type="text"
+              placeholder="john.newman@baymard.com"
+              class="form-control form-control-sm"
+            />
+            <small>
+              Enter an address where we can send an e-mail confirming your
+              order.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="second-section">
+          <div class="address form-group">
+            <label for="">*Address</label>
+            <input
+              type="text"
+              placeholder="2125 Chestrust st"
+              class="form-control form-control-sm"
+            />
+          </div>
+
+          <div class="city form-group">
+            <label for="">*City</label>
+            <input
+              type="text"
+              placeholder="San Francisco"
+              class="form-control form-control-sm"
+            />
+          </div>
+
+          <div class="zip">
+            <label for="">*Zip Code</label>
+            <input type="text" class="form-control form-control-sm" />
+          </div>
+          <div class="country">
+            <label for="">*Country</label>
+            <select name="" id="" class="form-control form-control-sm">
+              <option *ngFor="let country of CountriesName" value="">
+                {{ country }}
+              </option>
+            </select>
+          </div>
+          <div class="typeAdd">
+            <label for="">*Address Type</label>
+            <input
+              class="form-check-input ml-4"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios3"
+              value="option3"
+              checked
+            />
+            <label class="form-check-label ml-5" for="exampleRadios3">
+              Home
+            </label>
+            <input
+              class="form-check-input ml-4"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios3"
+              value="option4"
+            />
+            <label class="form-check-label ml-5" for="exampleRadios3">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="question2">
+      <label>Are you shipping this order to your billing address?</label>
+      <input
+        class="form-check-input ml-4"
+        type="radio"
+        name="exampleRadios"
+        id="exampleRadios3"
+        value="option4"
+        checked
+      />
+      <label class="form-check-label ml-5" for="exampleRadios3">
+        Yes
+      </label>
+      <input
+        class="form-check-input ml-4"
+        type="radio"
+        name="exampleRadios"
+        id="exampleRadios3"
+        value="option4"
+      />
+      <label class="form-check-label ml-5" for="exampleRadios3">
+        No
+      </label>
+    </div>
+  </ng-container>
+
+  <div class="col-12">
+    <button type="button" class="btn btn-info col-12">Guardar</button>
+  </div>
+</div>
