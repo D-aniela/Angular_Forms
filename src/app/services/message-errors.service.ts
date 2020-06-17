@@ -24,6 +24,9 @@ export class MessageErrorsService {
       case errorRecibido.hasOwnProperty('minLength'):
         message = 'Es necesario un mínimo de 3 caracteres';
         break;
+      case errorRecibido.hasOwnProperty('email'):
+        message = 'Ingrese un correo válido';
+        break;
       default:
         return {
           error: false,

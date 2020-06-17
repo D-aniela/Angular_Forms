@@ -30,6 +30,10 @@ export class TableFormComponent implements OnInit {
     this.createForm();
   }
 
+  onBlurEvent(event: any) {
+    console.log(event.target.value);
+  }
+
   public createForm() {
     this.formulario = new FormGroup({
       firstName: new FormControl(null, [
@@ -58,10 +62,7 @@ export class TableFormComponent implements OnInit {
         RxwebValidators.required(),
         RxwebValidators.minLength({ value: 3 }),
       ]),
-      email: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.minLength({ value: 3 }),
-      ]),
+      email: new FormControl(null, [RxwebValidators.email()]),
       retype: new FormControl(null, [
         RxwebValidators.required(),
         RxwebValidators.minLength({ value: 3 }),
