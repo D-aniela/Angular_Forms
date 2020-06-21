@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageErrorsService } from '../../services/message-errors.service';
+import { Country } from '../../interfaces/country.interface';
 import {
   RxwebValidators,
   ReactiveFormConfig,
@@ -85,6 +86,9 @@ export class TableFormComponent implements OnInit {
         RxwebValidators.required(),
         RxwebValidators.minLength({ value: 3 }),
       ]),
+      country:new FormControl(null ,RxwebValidators.required()),
+
+      addressType: new FormControl(null, RxwebValidators.requiredTrue())
     });
   }
 
@@ -94,6 +98,7 @@ export class TableFormComponent implements OnInit {
   }
 
   public validarForm(control: string) {
+    if (!this.formulario.controls[control].touched) return { error: undefined };
     // Regresa el objeto de los valores que tengo
     // let error: any = this.formulario.controls[control].errors;
 

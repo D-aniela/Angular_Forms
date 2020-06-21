@@ -50,8 +50,8 @@
               placeholder="John"
               class="form-control is-invalid form-control-sm"
               [ngClass]="{
-                'is-valid': !validarForm('firstName').error,
-                'is-invalid': validarForm('firstName').error
+                'is-valid': validarForm('firstName').error == false,
+                'is-invalid': validarForm('firstName').error == true
               }"
               appUppercase
               formControlName="firstName"
@@ -219,12 +219,28 @@
             </div>
           </div>
           <div class="country">
-            <label for="">*Country</label>
-            <select name="" id="" class="form-control form-control-sm">
+            <label for="null">*Country</label>
+            <select
+              [ngClass]="{
+                'is-valid': validarForm('country').error == false,
+                'is-invalid': validarForm('country').error == true
+              }"
+              formControlName="country"
+              name=""
+              id=""
+              class="form-control form-control-sm"
+            >
+              <option value="">Selected</option>
               <option *ngFor="let country of CountriesName" value="">
                 {{ country }}
               </option>
             </select>
+            <div
+              class="invalid-feedback d-block"
+              *ngIf="validarForm('country').error"
+            >
+              {{ validarForm("country").message }}
+            </div>
           </div>
           <div class="typeAdd">
             <label for="">*Address Type</label>
@@ -282,6 +298,7 @@
 
   <div class="col-12">
     <button
+    *ngIf="!formulario.invalid"
       type="button"
       (click)="MostrarFormulario()"
       class="btn btn-info btn-block"
